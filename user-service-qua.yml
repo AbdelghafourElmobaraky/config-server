@@ -1,0 +1,21 @@
+logging:
+  level:
+    org.springframework: INFO
+    ma.gov.pfe: DEBUG
+    spring:
+    datasource:
+    driver-class-name: org.h2.Driver
+    url:
+      jdbc:h2:file:~/users-${spring.profiles.active}-${server.port}
+    serverName : localhost
+    username: sa
+    password : password
+  jpa:
+    generate-ddl: true
+    show_sql: true
+    hibernate:
+    ddl_auto : create
+  h2:
+    console:
+    enabled: true
+    path: /h2-console
