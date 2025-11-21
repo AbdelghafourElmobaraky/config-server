@@ -1,0 +1,31 @@
+logging:
+  level:
+    ma.gov.pfe: DEBUG
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:~/product-db-${server.port}
+    username: sa
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    instance-id: product-service-${server.port}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
